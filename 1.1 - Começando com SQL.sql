@@ -82,3 +82,34 @@ SELECT
 	ColorName as 'Cor do Produto'
 FROM
 	DimProduct
+
+
+-- EXERCICIO
+
+/*1. Você é responsável por controlar os dados de clientes e de produtos da sua empresa.
+O que você precisará fazer é confirmar se:
+a. Existem 2.517 produtos cadastrados na base e, se não tiver, você deverá reportar ao seu
+gestor para saber se existe alguma defasagem no controle dos produtos.
+
+
+b. Até o mês passado, a empresa tinha um total de 19.500 clientes na base de controle.
+Verifique se esse número aumentou ou reduziu.*/
+
+--A
+SELECT * 
+FROM DimProduct
+
+--B
+SELECT *
+FROM DimCustomer
+-- Nossa Base de cliente possui 18.869 clientes, menos do que o mes anterior
+
+
+/*2. Você trabalha no setor de marketing da empresa Contoso e acaba de ter uma ideia de oferecer
+descontos especiais para os clientes no dia de seus aniversários. Para isso, você vai precisar
+listar todos os clientes e as suas respectivas datas de nascimento, além de um contato.
+a) Selecione as colunas: CustomerKey, FirstName, EmailAddress, BirthDate da tabela
+dimCustomer.
+
+b) Renomeie as colunas dessa tabela usando o alias (comando AS).*/
+
