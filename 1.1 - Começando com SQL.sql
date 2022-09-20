@@ -113,3 +113,64 @@ dimCustomer.
 
 b) Renomeie as colunas dessa tabela usando o alias (comando AS).*/
 
+SELECT TOP(10) * FROM DimCustomer
+
+SELECT 
+	Customerkey  as 'Id do Cliente',
+	FirstName    as 'Nome',
+	EmailAddress as 'E-mail',
+	BirthDate    as 'Data de Nascimento'
+FROM 
+	DimCustomer
+
+
+/*3. A Contoso está comemorando aniversário de inauguração de 10 anos e pretende fazer uma ação de premiação para os clientes. A empresa quer presentear os primeiros clientes desde a inauguração. Você foi alocado para levar adiante essa ação. Para isso, você terá que fazer o seguinte:
+
+a) A Contoso decidiu presentear os primeiros 100 clientes da história com um vale compras de R$ 10.000. Utilize um comando em SQL para retornar uma tabela com os primeiros 100 primeiros clientes da tabela dimCustomer (selecione todas as colunas).
+
+b) A Contoso decidiu presentear os primeiros 20% de clientes da história com um vale compras de R$ 2.000. Utilize um comando em SQL para retornar 10% das linhas da sua tabela dimCustomer (selecione todas as colunas).
+
+c) Adapte o código do item a) para retornar apenas as 100 primeiras linhas, mas apenas as colunas FirstName, EmailAddress, BirthDate.
+
+d) Renomeie as colunas anteriores para nomes em português.*/
+
+-- A
+SELECT 
+	TOP(100) *
+FROM
+	DimCustomer
+
+--B
+SELECT 
+	TOP(20) PERCENT *
+FROM 
+	DimCustomer
+
+-- C e D
+SELECT 
+	TOP(100) 
+	FirstName as 'Nome',
+	EmailAddress as 'E-mail',
+	BirthDate as 'Data de Nascimento'
+FROM 
+	DimCustomer
+
+
+/*4. A empresa Contoso precisa fazer contato com os fornecedores de produtos para repor o estoque. Você é da área de compras e precisa descobrir quem são esses fornecedores. Utilize um comando em SQL para retornar apenas os nomes dos fornecedores na tabela dimProduct e renomeie essa nova coluna da tabela*/
+
+SELECT * FROM dimproduct
+
+SELECT 
+	DISTINCT 
+	Manufacturer AS 'Produto'
+FROM 
+	DimProduct
+
+/*5. O seu trabalho de investigação não para. Você precisa descobrir se existe algum produto registrado na base de produtos que ainda não tenha sido vendido. Tente chegar nessa informação.
+Obs: caso tenha algum produto que ainda não tenha sido vendido, você não precisa descobrir qual é, é suficiente saber se teve ou não algum produto que ainda não foi vendido*/
+
+SELECT * FROM DimProduct
+
+SELECT * FROM FactSales
+
+SELECT DISTINCT productkey from FactSales
