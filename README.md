@@ -1,2 +1,3 @@
-# 03_SQL_Data_Science
-SQL Para Data Science e Data Analytics
+# 03_SQL
+1 - Conteudo SQL MySQL, MongoDB, ORACLE, etc...
+2 - SQL Para Data Science com Python
