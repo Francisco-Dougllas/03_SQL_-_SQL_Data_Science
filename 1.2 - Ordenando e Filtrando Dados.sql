@@ -173,3 +173,91 @@ SELECT
 	TOP (10) *
 FROM DimProduct
 ORDER BY UnitPrice DESC, Weight DESC
+
+--EXERCICIO-2.1
+SELECT 
+	TOP (10) *
+FROM DimProduct
+ORDER BY UnitPrice DESC, Weight DESC, AvailableForSaleDate ASC
+
+--EXERCICIO 3
+SELECT 
+	ProductName as 'Nome do Produto',
+	Weight as 'Peso'
+FROM
+	DimProduct
+WHERE Weight >= 100
+ORDER BY Weight DESC
+
+--EXERCICIO 4
+SELECT
+	StoreName As 'Nome da Loja',
+	OpenDate AS 'Data de Abertura',
+	EmployeeCount AS 'Qtd. Funcionarios'
+FROM 
+	DimStore
+WHERE StoreType = 'Store' and Status = 'On'
+
+--EXERCICIO 5
+SELECT *
+FROM 
+	DimProduct
+WHERE BrandName = 'Litware' AND ProductName LIKE '%Home Theater%'
+
+
+SELECT *
+FROM 
+	DimProduct
+WHERE BrandName = 'Litware' AND ProductName LIKE
+	'%Home Theater%' AND AvailableForSaleDate = '20090315'
+
+--EXERCICIO 06
+SELECT *
+FROM
+	DimStore
+WHERE Status = 'off'
+
+SELECT *
+FROM
+	DimStore
+WHERE CloseDate IS NOT NULL
+
+
+--EXERCICIO 7
+SELECT *
+FROM
+	DimStore
+WHERE EmployeeCount BETWEEN 1 AND 50
+
+SELECT *
+FROM
+	DimStore
+WHERE EmployeeCount > 50
+
+--EXERCICIO 8
+SELECT *
+FROM
+	DimProduct
+WHERE ProductDescription LIKE '%LCD%'
+
+SELECT 
+	Productkey as 'ID',
+	ProductName as 'Nome do Produto',
+	UnitPrice as 'Preco do Produto'
+FROM
+	DimProduct
+WHERE ProductDescription LIKE '%LCD%'
+
+--EXERCICIO 9
+SELECT *
+FROM
+	DimProduct
+WHERE ColorName IN ('Green','Orange','Black','Silver','Pink') AND
+	BrandName IN ('Contoso', 'Litware', 'Fabrikam')
+
+--EXERCICIO 10
+SELECT *
+FROM
+	DimProduct
+WHERE BrandName = 'Contoso' AND ColorName='Silver' AND Weight BETWEEN 10 and 30
+ORDER BY Unitprice DESC
